@@ -11,6 +11,11 @@ type Pagedata struct {
 }
 
 func main() {
+
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
+
+	http.Handle("/stylesheets/", http.StripPrefix("/stylesheets/", http.FileServer(http.Dir("stylesheets"))))
+
 	http.HandleFunc("/", main_page)
 
 	fmt.Printf("hi\n")
